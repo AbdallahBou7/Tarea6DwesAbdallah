@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Editar Planta</title>
+    <meta charset="UTF-8" />
+	<link rel="stylesheet" th:href="@{/css/styles.css}" />
+
+</head>
+<body>
+	<header class="header">
+	        <div class="container">
+	            <h1>Vivero Digital</h1>
+	        </div>
+	    </header>
+		
+		<div class="container">
+		    <div class="form-container">
+   				 <h1>Editar Planta</h1>
+    			<form th:action="@{/plantas/editar}" th:object="${planta}" method="post">
+					<div class="form-group">
+       			 <input type="hidden" class="form-control" th:field="*{id}" />
+				 </div>
+				 <div class="form-group">
+        		<label>Codigo:</label>
+       			 <input type="text" class="form-control" th:field="*{codigo}" required/><br/>
+				 </div>
+				 <div class="form-group">
+       			 <label>Nombre Comun:</label>
+        		<input type="text" class="form-control" th:field="*{nombrecomun}" required/><br/>
+				</div>
+				<div class="form-group">
+        		<label>Nombre Cientifico:</label>
+        		<input type="text" class="form-control" th:field="*{nombrecientifico}" required/><br/>
+				</div>
+        		<input type="submit" class="btn btn-primary" value="Actualizar Planta"/>
+    </form>
+    <a th:href="@{/plantas}">Volver a la Lista de Plantas</a>
+	
+	</div>
+	</div>
+	
+	<footer class="footer">
+	       <div class="container">
+	           <p>&copy; 2025 Vivero Digital. Todos los derechos reservados.</p>
+	       </div>
+	   </footer>
+	</body>
+</html>

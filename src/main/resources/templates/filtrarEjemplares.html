@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Filtrar Ejemplares</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>Filtrar Ejemplares</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="form-container">
+            <h2>Filtrar Ejemplares por Tipo de Planta</h2>
+            <form th:action="@{/ejemplares/filtrar}" method="post">
+                <div class="form-group">
+                    <label for="tipo">Tipo de Planta:</label>
+                    <select id="tipo" name="tipo" class="form-control" required>
+                        <option th:each="tipo : ${tipos}" th:value="${tipo}" th:text="${tipo}"></option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Filtrar</button>
+            </form>
+        </div>
+
+            <a th:href="@{/menu}" class="btn btn-secondary">Volver al Menú</a>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Vivero Digital - Gestión de Ejemplares</p>
+        </div>
+    </footer>
+</body>
+</html>

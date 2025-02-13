@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Nueva Planta</title>
+    <meta charset="UTF-8" />
+	<link rel="stylesheet" th:href="@{/css/styles.css}" />
+
+</head>
+<body>
+    <h1>Nueva Planta</h1>
+    <form th:action="@{/plantas/nueva}" th:object="${planta}" method="post">
+        <label>Codigo:</label>
+        <input type="text" th:field="*{codigo}" required/><br/>
+        <label>Nombre Comun:</label>
+        <input type="text" th:field="*{nombrecomun}" required/><br/>
+        <label>Nombre Cientifico:</label>
+        <input type="text" th:field="*{nombrecientifico}" required/><br/>
+        <input type="submit" value="Crear Planta"/>
+    </form>
+    <a th:href="@{/menu}">Volver al Menú</a>
+</body>
+</html>

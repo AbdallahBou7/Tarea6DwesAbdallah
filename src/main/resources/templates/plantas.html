@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista de Plantas</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>Vivero Digital</h1>
+        </div>
+    </header>
+
+    <nav class="nav-menu">
+        <div class="container">
+            <a th:href="@{/menu}">Menú Principal</a>
+            <a th:href="@{/plantas/nueva}">Nueva Planta</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Lista de Plantas</h1>
+        
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Código</th>
+                    <th>Nombre Común</th>
+                    <th>Nombre Científico</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="planta : ${plantas}">
+                    <td th:text="${planta.id}"></td>
+                    <td th:text="${planta.codigo}"></td>
+                    <td th:text="${planta.nombrecomun}"></td>
+                    <td th:text="${planta.nombrecientifico}"></td>
+                    <td>
+                        <a th:href="@{'/plantas/editar/' + ${planta.id}}" 
+                           class="btn btn-secondary">Editar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <a th:href="@{/menu}" class="btn btn-primary">Volver al Menú</a>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Vivero Digital. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>

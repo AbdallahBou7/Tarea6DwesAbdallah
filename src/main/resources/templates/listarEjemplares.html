@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Ejemplares Filtrados</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>Ejemplares Filtrados</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="form-container">
+            <h2>Resultados de la Búsqueda</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Tipo de Planta</th>
+                        <th>Fecha de Registro</th>
+                    </tr>
+                </thead>
+				<tbody>
+				    <tr th:each="ejemplar : ${ejemplares}">
+				        <td th:text="${ejemplar.id}"></td>
+				        <td th:text="${ejemplar.nombre}"></td>
+				        <td th:text="${ejemplar.planta.tipo}"></td>
+				        <td th:text="${#temporals.format(ejemplar.fechaRegistro, 'dd-MM-yyyy HH:mm')}"></td>
+						<p th:if="${ejemplares.isEmpty()}">No hay ejemplares para el tipo seleccionado.</p>
+
+				    </tr>
+				</tbody>
+            </table>
+            <a th:href="@{/menu}" class="btn btn-secondary">Volver al Menú</a>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Vivero Digital - Gestión de Ejemplares</p>
+        </div>
+    </footer>
+</body>
+</html>
