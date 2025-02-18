@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Menú Principal</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>Vivero Digital</h1>
+        </div>
+    </header>
+
+    <nav class="nav-menu">
+        <div class="container">
+            <a th:href="@{/plantas}">Gestión de Plantas</a>
+            <a th:href="@{/ejemplares}">Gestión de Ejemplares</a>
+            <a th:href="@{/mensajes}">Gestión de Mensajes</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="form-container" style="text-align: center;">
+            <h1>Bienvenido al Vivero</h1>
+            <div style="margin: 2rem 0;">
+                <a th:href="@{/plantas}" class="btn btn-primary" style="margin: 0.5rem;">Ver Plantas</a>
+                <a th:href="@{/ejemplares}" class="btn btn-primary" style="margin: 0.5rem;">Ver Ejemplares</a>
+                <a th:href="@{/mensajes}" class="btn btn-primary" style="margin: 0.5rem;">Ver Mensajes</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Vivero Digital. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>

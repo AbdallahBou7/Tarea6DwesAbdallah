@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista de Mensajes</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>Mensajes del Ejemplar</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="form-container">
+            <h2>Filtrar Mensajes</h2>
+            <form th:action="@{/mensajes/filtrar}" method="get">
+                <div class="form-group">
+                    <label for="persona">Filtrar por Persona:</label>
+                    <select id="persona" name="personaId" class="form-control">
+                        <option value="">Seleccione una persona</option>
+                        <option th:each="persona : ${personas}" th:value="${persona.id}" th:text="${persona.nombre}"></option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="inicio">Desde:</label>
+                    <input type="datetime-local" id="inicio" name="inicio" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="fin">Hasta:</label>
+                    <input type="datetime-local" id="fin" name="fin" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="tipo">Filtrar por Tipo de Planta:</label>
+                    <select id="tipo" name="tipo" class="form-control">
+                        <option value="">Seleccione un tipo</option>
+                        <option th:each="tipo : ${tipos}" th:value="${tipo}" th:text="${tipo}"></option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Filtrar</button>
+            </form>
+        </div>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Contenido</th>
+                    <th>Fecha</th>
+                    <th>Persona</th>
+                    <th>Ejemplar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="mensaje : ${mensajes}">
+                    <td th:text="${mensaje.id}"></td>
+                    <td th:text="${mensaje.contenido}"></td>
+                    <td th:text="${mensaje.fechaMensaje}"></td>
+                    <td th:text="${mensaje.persona.nombre}"></td>
+                    <td th:text="${mensaje.ejemplar.planta.codigo + ' - ' + mensaje.ejemplar.id}"></td>
+                </tr>
+            </tbody>
+        </table>
+        <a th:href="@{/menu}" class="btn btn-secondary">Volver al Menú</a>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Vivero Digital. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>

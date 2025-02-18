@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Gestión de Mensajes</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>Gestión de Mensajes</h1>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="form-container" style="text-align: center;">
+            <h2>Seleccione una opción</h2>
+            <div class="personal-options">
+                <a th:href="@{/listaMensajes}">Ver Lista de Mensajes</a>
+                <a th:href="@{/mensajes/nuevo}">Crear Nuevo Mensaje</a>
+                <a th:href="@{/menu}" class="back-button">Volver al Menú</a>
+            </div>
+            <br>
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Vivero Digital - Gestión de Mensajes</p>
+        </div>
+    </footer>
+</body>
+</html>
